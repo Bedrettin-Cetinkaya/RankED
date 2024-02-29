@@ -1,1 +1,3 @@
-# RankED
+# RankED: Addressing Imbalance and Uncertainty in Edge Detection Using Ranking-based Losses (CVPR 2024)
+
+COMING SOON...
