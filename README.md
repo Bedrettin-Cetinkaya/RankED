@@ -30,3 +30,60 @@ Download the pretrained model from [here](https://github.com/SwinTransformer/sto
 Put this file into preTrain/.
 
 ## 2. Train Model
+### 2.1 NYU:
+-Change delta as 0.4 and split (in Line 9) based on your GPU memory (split=1 requires huge memory about ~40 GB) in [mmseg/model/losses/ap_loss.py](https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/models/losses/ap_loss.py#L9-10)
+
+        
+-Run the following command to start training.
+
+```shell
+python tools/train.py configs/APLoss/base_320_fullData.py --options model.pretrained=preTrain/swin_base_patch4_window12_384_22k.pth model.backbone.use_checkpoint=True --work-dir your_folder
+```
+
+### 2.2 BSDS:
+
+#### For Only Ranking:
+-Change delta as 0.1 and split (in Line 9) based on your GPU memory (split=1 requires huge memory about ~40 GB) in [mmseg/model/losses/ap_loss.py](https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/models/losses/ap_loss.py#L9-10)
+
+        
+-Run the following command to start training.
+
+```shell
+python tools/train.py configs/APLoss/base_320_fullData_bsds.py --options model.pretrained=preTrain/swin_base_patch4_window12_384_22k.pth model.backbone.use_checkpoint=True --work-dir your_folder
+```
+
+#### For Ranking & Sorting:
+-Change delta as 0.1 and split (in Line 9) based on your GPU memory (split=1 requires huge memory about ~40 GB) in [mmseg/model/losses/rank_loss.py]([https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/models/losses/ap_loss.p](https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/models/losses/rank_loss.py)y#L9-10) and [mmseg/model/losses/sort_loss.py]([https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/models/losses/ap_loss.p](https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/models/losses/sort_loss.py)y#L9-10)
+
+- Comment the line 12 in [mmseg/datasets/pipelines/bsds_get_gtfiles.py](https://github.com/Bedrettin-Cetinkaya/RankED/blob/main/mmseg/datasets/pipelines/bsds_get_gtfiles.py#L12-13)
+ 
+-Run the following command to start training.
+
+```shell
+python tools/train.py configs/RSLoss/base_320_fullData_bsds.py --options model.pretrained=preTrain/swin_base_patch4_window12_384_22k.pth model.backbone.use_checkpoint=True --work-dir your_folder
+```
+## 3. Inference
+
+-Run the following command to start inference. 
+python tools/test.py --config configs/APLoss/base_320_fullData_bsds.py --checkpoint your_folder/xxx.pth --tmpdir your_save_result_dir
+
+## 4. Acknowledgements
+Thanks to the previous open-sourced repo:
+
+[EDTER](https://github.com/MengyangPu/EDTER)
+
+[Swin-Tranformer](https://github.com/microsoft/Swin-Transformer)
+
+[MMSegmentation](https://github.com/open-mmlab/mmsegmentation)
+
+## 5. Reference
+```bibtex
+@InProceedings{cetinkaya2024ranked,
+  title={RankED: Addressing Imbalance and Uncertainty in Edge Detection Using Ranking-based Losses}, 
+  author={Bedrettin Cetinkaya and Sinan Kalkan and Emre Akbas},
+  year={2024},
+  booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  url={https://ranked-cvpr24.github.io/}
+}
+```
+
