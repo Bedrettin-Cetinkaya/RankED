@@ -25,7 +25,8 @@ Extract these files via tar zxvf filename.tar.gz
 
 ### 1.3 Initial Weights
 
-Download the pretrained model from [here] (https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth)
+Download the pretrained model from [here](https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth)
 
 Put this file into preTrain/.
 
+## 2. Train Model
