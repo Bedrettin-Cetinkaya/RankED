@@ -67,6 +67,11 @@ python tools/train.py configs/RSLoss/base_320_fullData_bsds.py --options model.p
 -Run the following command to start inference. 
 python tools/test.py --config configs/APLoss/base_320_fullData_bsds.py --checkpoint your_folder/xxx.pth --tmpdir your_save_result_dir
 
+## 4. Pre-trained Models:
+-[NYUD (Only Ranking)](https://drive.google.com/file/d/1PVLYa-GuFVREZqB8qxYDRdGYarCAaapA/view?usp=sharing) 
+
+-[BSDS (Ranking & Sorting)](https://drive.google.com/file/d/1XbfOUsFKqTvSixVIxMNY8jNDOuf1E_0E/view?usp=sharing)
+
 ## 4. Acknowledgements
 Thanks to the previous open-sourced repo:
 
