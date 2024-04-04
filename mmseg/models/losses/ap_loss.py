@@ -61,6 +61,7 @@ class APLoss(torch.autograd.Function):
                 diff_max = ( accm_prec == current_prec)
                                 
                 prec_coef_max = (1 - accm_prec_orig) / ( 1 - current_prec + 1e-20)
+                prec_coef = torch.ones(rank.size()).cuda()
                 prec_coef [ diff_max == 0] = prec_coef_max[diff_max == 0]
                 relevant_bg_grad +=  torch.sum( (bg_relations / rank[start:end,None]) * prec_coef[start:end,None]  , axis = 0)
                 fg_grad=-(1-accm_prec)
