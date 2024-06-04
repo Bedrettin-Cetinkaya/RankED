@@ -74,7 +74,6 @@ class APLoss_orig(torch.autograd.Function):
 
             #aLRP with grad formulation fg gradient
             classification_grads[fg_labels]= fg_grad
-            torch.amax(relevant_bg_logits), " " , torch.amin(relevant_bg_logits)," " , torch.histc(relevant_bg_logits, bins=8, min=-2,max=2), " " ,torch.amax(fg_logits), " " , torch.amin(fg_logits)," " , torch.histc(fg_logits,bins=8, min=-2,max=2),flush=True)
 
             #aLRP with grad formulation bg gradient
             classification_grads[relevant_bg_labels]= relevant_bg_grad 
