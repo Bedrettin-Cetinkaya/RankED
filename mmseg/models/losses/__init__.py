@@ -13,6 +13,6 @@ from .balanced_mse import BMSE
 __all__ = [
     'accuracy', 'Accuracy', 'cross_entropy', 'binary_cross_entropy',
     'mask_cross_entropy', 'CrossEntropyLoss', 'reduce_loss',
-    'weight_reduce_loss', 'weighted_loss', 'LovaszLoss','HEDLoss', 'hed_loss', 'APLoss', , 'APLoss_orig',
+    'weight_reduce_loss', 'weighted_loss', 'LovaszLoss','HEDLoss', 'hed_loss', 'APLoss', 'APLoss_orig',
     'RankLoss','SortLoss', 'BMSE'
 ]
